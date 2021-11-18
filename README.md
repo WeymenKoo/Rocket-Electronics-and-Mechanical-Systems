@@ -21,7 +21,7 @@ Pad idle:
 Launch:
 1. Flight computer detects launch either using IMU or breakwire.
 2. Data logging continues.
-3. BME280 detects apogee.
+3. Barometer detects apogee.
 4. Servo is opened to allow fairing to seperate.
 5. Parachute deployed.
 

@@ -8,24 +8,5 @@ Payload fairing:
 The main parachute will be housed in a 3D printable clamshell payload fairing that is secured by a servo. Upon reaching apogee, the servo releases. The spring that were pushing against the fairing will jettison them away, releasing the parachute. 
 
 Avionics:
-The flight computer will be based on a teensy 3.5, with BME280 as the main altimeter, MPU6050 as the main IMU, SD card for datalogging, servo output pins, reverse polarity protection, RGB indicator light, push button, possibly a breakwire circuit as an extra launch detection method for redundancy. 
+The flight computer will be based on a teensy 4.1, with BME388 as the main altimeter, BNO055 as the main IMU, SD card for datalogging, servo output pins, reverse polarity protection, RGB indicator light, push button, possibly a breakwire circuit as an extra launch detection method for redundancy. 
 
-Sequence of events:
-Pad idle:
-1. MCU checks whether all sensors are working, SD card pressent, and file creation contain no error. 
-2. Red light if error, stop everything.
-3. Green light if everything is nominal, proceed to next step.
-4. Servo Opens and Closes smoothly, and that the fairing is secured properly.
-5. Start datalogging.
-
-Launch:
-1. Flight computer detects launch either using IMU or breakwire.
-2. Data logging continues.
-3. Barometer detects apogee.
-4. Servo is opened to allow fairing to seperate.
-5. Parachute deployed.
-
-Descend and touchdown:
-1. Data logging continues.
-2. LED and Buzzer blinking and beeping as IMU detects touchdown.
-3. If button is pushed, data logging stops and saves on to SD card.
